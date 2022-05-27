@@ -5,10 +5,10 @@ ___
 2. Clone this repo in any local folder:
 ```$ git clone git@github.com:danrprado/cpanel-api.git```
 3. Inside of the project folder (cpanel-api):
-   - Create a dev branch with: 
-   ```$ git checkout -b dev  ```
-   - Now you're working inside of [**dev**] branch, test it with: ```$ git branch```.
+   - Create a custom branch with: 
+   ```$ git checkout -b mynewbranch  ```
+   - Now you're working inside of [**mynewbranch**] branch, test it with: ```$ git branch```.
 
 Now you can start to make changes in your local repository with your favorite IDE.
 
-**Remember to push to the [*Dev*] Branch**: ```$ git push origin dev``` **and create a Pull Request**.
+**Remember to push to [*mynewbranch*]: ```$ git push origin mynewbranch``` **and create a Pull Request** to merge [*mynewbranch*] with [*dev*] branch.
