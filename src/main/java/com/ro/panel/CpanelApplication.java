@@ -1,4 +1,4 @@
-package com.ro.panel.cpanel;
+package com.ro.panel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
