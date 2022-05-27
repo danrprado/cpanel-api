@@ -1,4 +1,4 @@
-package com.ro.panel.cpanel;
+package com.ro.panel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
