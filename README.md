@@ -9,6 +9,6 @@ ___
    ```$ git checkout -b mynewbranch  ```
    - Now you're working inside of [**mynewbranch**] branch, test it with: ```$ git branch```.
 
-Now you can start to make changes in your local repository with your favorite IDE.
+Now you can start to make changes in your local repository with your favorite IDE!
 
 **Remember to push to [*mynewbranch*]: ```$ git push origin mynewbranch``` **and create a Pull Request** to merge [*mynewbranch*] with [*dev*] branch.
