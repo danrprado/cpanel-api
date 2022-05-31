@@ -12,3 +12,5 @@ ___
 Now you can start to make changes in your local repository with your favorite IDE!
 
 **Remember to push to [*mynewbranch*]: ```$ git push -u origin mynewbranch``` **and create a Pull Request** to merge [*mynewbranch*] with [*main*] branch.
+
+Creating a pull request to the main branch... 
