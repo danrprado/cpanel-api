@@ -17,8 +17,14 @@ import java.util.Optional;
 @Validated
 public class MasterAccountController {
 
+
+    private final MasterAccountRepository masterAccountRepository;
+
     @Autowired
-    private MasterAccountRepository masterAccountRepository;
+    public MasterAccountController(MasterAccountRepository masterAccountRepository) {
+        this.masterAccountRepository = masterAccountRepository;
+    }
+
     @GetMapping("/user-panel/master-account/{id}")
     @Validated
     public ResponseEntity<?> getMasterAccounts(@PathVariable @Min(1) Integer id){
