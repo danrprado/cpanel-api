@@ -33,12 +33,11 @@ public class DataSourceGenerator {
         String dbName = dataSourceCredentials.dataSourceCredentials(paramDbName);
         String dbUser = dataSourceCredentials.dataSourceCredentials(paramDbUser);
         String dbPass = dataSourceCredentials.dataSourceCredentials(paramDbPassword);
-        System.out.println("Data: "+dbUrl+"|"+dbName+"|"+dbUser+"|"+dbPass);
         DataSourceBuilder<?> dataSourceBuilder = org.springframework.boot.jdbc.DataSourceBuilder.create();
         dataSourceBuilder.driverClassName(paramDbDriver);
         dataSourceBuilder.url(dbUrl + dbName);
         dataSourceBuilder.username(dbUser);
-        dataSourceBuilder.password("");
+        dataSourceBuilder.password(dbPass);
         return dataSourceBuilder.build();
     }
 

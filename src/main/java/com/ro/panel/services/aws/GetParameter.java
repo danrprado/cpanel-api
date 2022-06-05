@@ -11,6 +11,7 @@ public class GetParameter {
         try {
             GetParameterRequest parameterRequest = GetParameterRequest.builder()
                     .name(paraName)
+                    .withDecryption(Boolean.TRUE)
                     .build();
             parameterResponse = ssmClient.getParameter(parameterRequest);
         } catch (SsmException e) {
