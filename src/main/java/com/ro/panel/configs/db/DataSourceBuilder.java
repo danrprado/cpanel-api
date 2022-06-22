@@ -1,15 +1,15 @@
 package com.ro.panel.configs.db;
 
+import com.ro.panel.services.aws.ssm.ParameterStoreRetriever;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
 @Configuration
-public class DataSourceGenerator {
+public class DataSourceBuilder {
     @Value("${parameter.db.url}")
     private String paramDbUrl;
     @Value("${parameter.db.name}")
@@ -21,19 +21,19 @@ public class DataSourceGenerator {
     @Value("${parameter.db.driver}")
     private String paramDbDriver;
 
-    private final DataSourceCredentials dataSourceCredentials;
+    private final ParameterStoreRetriever parameterStoreRetriever;
     @Autowired
-    public DataSourceGenerator(DataSourceCredentials dataSourceCredentials) {
-        this.dataSourceCredentials = dataSourceCredentials;
+    public DataSourceBuilder(ParameterStoreRetriever parameterStoreRetriever) {
+        this.parameterStoreRetriever = parameterStoreRetriever;
     }
 
     @Bean
-    public DataSource DataSourceBuilderBean(){
-        String dbUrl = dataSourceCredentials.dataSourceCredentials(paramDbUrl);
-        String dbName = dataSourceCredentials.dataSourceCredentials(paramDbName);
-        String dbUser = dataSourceCredentials.dataSourceCredentials(paramDbUser);
-        String dbPass = dataSourceCredentials.dataSourceCredentials(paramDbPassword);
-        DataSourceBuilder<?> dataSourceBuilder = org.springframework.boot.jdbc.DataSourceBuilder.create();
+    public DataSource dataSourceBuilderGenerator(){
+        String dbUrl = parameterStoreRetriever.getParamValue(paramDbUrl);
+        String dbName = parameterStoreRetriever.getParamValue(paramDbName);
+        String dbUser = parameterStoreRetriever.getParamValue(paramDbUser);
+        String dbPass = parameterStoreRetriever.getParamValue(paramDbPassword);
+        org.springframework.boot.jdbc.DataSourceBuilder<?> dataSourceBuilder = org.springframework.boot.jdbc.DataSourceBuilder.create();
         dataSourceBuilder.driverClassName(paramDbDriver);
         dataSourceBuilder.url(dbUrl + dbName);
         dataSourceBuilder.username(dbUser);

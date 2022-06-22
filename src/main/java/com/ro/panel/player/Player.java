@@ -1,4 +1,4 @@
-package com.ro.panel.models;
+package com.ro.panel.player;
 
 
 import javax.persistence.*;
@@ -6,13 +6,14 @@ import javax.validation.constraints.Email;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "master_accounts")
-public class MasterAccount {
+@Table(name = "players")
+public class Player {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Email
+    @Column(unique = true)
     private String email;
     private String name;
     private String password;
@@ -24,6 +25,23 @@ public class MasterAccount {
     private LocalDateTime fb_time;
     private Integer level;
     private Integer cash_points;
+
+    public Player() {
+    }
+
+    public Player(String email, String name, String password, String remember_token, LocalDateTime created_at, LocalDateTime updated_at, Integer pin_code, Integer fb_points, LocalDateTime fb_time, Integer level, Integer cash_points) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.remember_token = remember_token;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+        this.pin_code = pin_code;
+        this.fb_points = fb_points;
+        this.fb_time = fb_time;
+        this.level = level;
+        this.cash_points = cash_points;
+    }
 
     public Integer getId() {
         return id;
