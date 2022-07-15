@@ -3,12 +3,10 @@ package com.ro.panel.configs.db;
 import com.ro.panel.services.aws.ssm.ParameterStoreRetriever;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class DataSourceBuilder {
     @Value("${parameter.db.url}")
     private String paramDbUrl;
@@ -27,7 +25,7 @@ public class DataSourceBuilder {
         this.parameterStoreRetriever = parameterStoreRetriever;
     }
 
-    @Bean
+//    @Bean
     public DataSource dataSourceBuilderGenerator(){
         String dbUrl = parameterStoreRetriever.getParamValue(paramDbUrl);
         String dbName = parameterStoreRetriever.getParamValue(paramDbName);

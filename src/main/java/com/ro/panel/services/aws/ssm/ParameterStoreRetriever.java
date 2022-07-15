@@ -13,7 +13,7 @@ public class ParameterStoreRetriever {
     private final SsmClient ssmClient;
     public ParameterStoreRetriever(@Value("${aws.profile.name}") String awsProfile) {
         this.ssmClient = SsmClient.builder()
-                .credentialsProvider(ProfileCredentialsProvider.create(awsProfile))
+                .credentialsProvider(ProfileCredentialsProvider.create())
                 .build();
     }
 

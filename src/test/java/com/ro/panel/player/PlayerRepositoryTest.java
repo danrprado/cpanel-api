@@ -9,12 +9,6 @@ import org.springframework.test.context.TestPropertySource;
 import java.time.LocalDateTime;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // to avoid autoconfiguration of H2
-@TestPropertySource(
-        properties = {
-                "spring.datasource.url=jdbc:tc:mysql:5.7.37:////testdb"
-        }
-)
 class PlayerRepositoryTest {
 
     @Autowired
